@@ -1,0 +1,59 @@
+/* # - Card restaurant --------------------------------------------------------------------------------------------------------------------------------------- # */
+.card {
+  @include flex($direction: column, $gap: 16px);
+  width: 100%;
+  height: 251px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow, transform, 0.5s;
+  &:hover {
+    box-shadow: 0px 4px 20px $shadow-color;
+  }
+
+ 
+  &--new {
+    &:hover::before {
+      box-shadow: 1px 4px 20px rgba($badge-secondary-color, 0.3);
+    }
+    &:hover::before {
+      background-color: $badge-primary-color--light;
+    }
+    &::before {
+      content: "Nouveau";
+      position: absolute;
+      right: 3.53%; 
+      top: 5.18%; 
+      width: 80px;
+      height: 29px;
+      line-height: 29px; 
+      text-align: center;
+      background-color: $badge-primary-color;
+      color: $badge-secondary-color;
+      border-radius: 2px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+      transition: box-shadow, transform, 0.5s;
+    }
+  }
+
+  &__picture {
+    border-radius: 15px 15px 0 0;
+    height: calc(251px - 77px);
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__description {
+    @include flex($direction: column, $gap: 5px);
+    padding: 0 25px 0 13px;
+  }
+
+ 
+  .fa-heart {
+    width: 26px;
+    position: absolute;
+    right: 23px;
+    bottom: 32px;
+  }
+}
+

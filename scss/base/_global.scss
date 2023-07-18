@@ -1,0 +1,56 @@
+
+/* # - global parameters ----------------------------------------------------------------------------------------------------------------------------- # */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  background: white;
+}
+
+
+
+body {
+  background:white;
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+
+main {
+  z-index: 0;
+  margin: auto;
+}
+
+footer {
+  width: 100%;
+  background-color: $footer-background-color;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+fieldset,
+button,
+input {
+  border: none;
+}
+
+:focus {
+  outline: none;
+}
+
+address {
+  font-style: inherit;
+}

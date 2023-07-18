@@ -1,0 +1,94 @@
+.loader {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  @include flex(column, center, center, 2rem);
+  background: white;
+  position: fixed;
+  animation: loading 3s;
+  @include for-size(tablet) {
+    gap: 3rem;
+  }
+  @include for-size(desktop) {
+    gap: 4rem;
+  }
+
+  &__img {
+    width: 15rem;
+    @include for-size(tablet) {
+      width: 22.5rem;
+    }
+    @include for-size(desktop) {
+      width: 30rem;
+    }
+  }
+
+  &__dot {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 100%; //perfect circle
+    display: inline-block;
+    animation: slide 1s 3;
+    @include for-size(tablet) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+    @include for-size(desktop) {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+  // this loop replace repetitive lines of code
+  // it delay animation and adapt color for each dot.
+  @for $i from 1 through 5 {
+    &__dot:nth-child(#{$i}) {
+      animation-delay: 100ms * $i;
+      background: map-get($loader-colors, $i);
+    }
+  }
+}
+//animation dots setup
+//each dot grow and shrink with delay
+@keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.6);
+  }
+  99% {
+    display: initial;
+  }
+  100% {
+    display: none;
+    transform: scale(1);
+  }
+}
+//animation loader page setup
+// loader page appear, grow with opacity reduction and desappear.
+@keyframes loading {
+  0% {
+    z-index: 5;
+  }
+  70% {
+    opacity: 1;
+  }
+  71% {
+    transform: scale(1);
+  }
+  81% {
+    opacity: 0.019;
+  }
+  99% {
+    opacity: 0.001;
+    transform: scale(5);
+    z-index: 5;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+    z-index: -1;
+  }
+}

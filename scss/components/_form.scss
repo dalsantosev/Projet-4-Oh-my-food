@@ -1,0 +1,121 @@
+/* # - Form --------------------------------------------------------------------------------------------------------------------------------------------------------- # */
+
+
+.restaurant-page {
+  
+  .form {
+    background: $restaurant-page-backgound;
+    margin: 0 auto;
+    @include flex($direction: column, $gap: 12px);
+    input[type="radio"] {
+      display: none;
+      
+      &:checked + label::before {
+        transform: rotate(0deg); 
+        margin-right: 0;
+      }
+      &:checked + label::after {
+        margin-right: 0; 
+      }
+      &:checked + label .form__subtitle{
+        padding-right:calc(59px + 40px)
+      }
+      &:checked + label .form__price {
+        padding-right: 59px; 
+      }
+    }
+
+    label {
+      @include flex(column, space-between, initial, 0);
+      position: relative; 
+      height: 69px;
+      margin: 0 3.47vw;
+      padding: 0 15px;
+      border-radius: 15px;
+      overflow: hidden; //hide ::before and ::after
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      transition: box-shadow 0.5s;
+      @include for-size(desktop) {
+        margin: 0;
+      }
+      &:hover,
+      &:focus {
+        box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.15);
+      }
+      
+
+      &::before {
+        content: "\f058";
+        font-family: fontAwesome;
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: inherit;
+        width: 59px;
+        line-height: 69px; 
+        text-align: center; 
+        margin-right: -59px; 
+        transform: rotate(180deg); 
+        z-index: 1;
+        transition: all 0.5s ease-in-out; 
+      }
+      
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: inherit;
+        width: 59px;
+        margin-right: -59px;
+        border-radius: 0 15px 15px 0;
+        background-color: $badge-primary-color;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+
+    &__title {
+      @include flex($direction: column, $justify: space-between);
+      height: 27px;
+      margin-top: 40px;
+      margin-left: 3.4vw;
+      @include for-size(desktop) {
+        margin-left: 0;
+      }
+      
+
+      &::after {
+        justify-self: flex-end;
+        content: "";
+        overflow: visible;
+        width: 40px;
+        height: 3px;
+        display: block;
+        background-color: $badge-primary-color;
+      }
+    }
+
+    &__subtitle {
+      margin-top: 12px;
+      padding-right:30px;
+      transition: all 0.5s ease-in-out; 
+    }
+
+    &__price {
+      transition: all 0.5s ease-in-out; 
+      padding-left:15px;
+    }
+    
+    &__description-container {
+      @include flex($justify: space-between);
+      margin-bottom: 13.5px;
+    }
+
+    button {
+      margin: 28px auto 40px auto;
+    }
+  }
+}

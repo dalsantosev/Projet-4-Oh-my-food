@@ -1,0 +1,91 @@
+/* # - Typography ---------------------------------------------------------------------------------------------------------------------------------------------------------- # */
+
+
+//global
+body {
+  font-family: $main-font;
+}
+
+//header
+.h-texte-logo {
+  @include typography($family: $title-font, $size: 30px);
+}
+
+//main homepage
+.localis-container {
+  input[type="text"],
+  input[type="text"]::placeholder {
+    @include typography($weight: $semi-bold);
+    color: inherit;
+  }
+}
+
+.reservation {
+  &__content {
+    @include typography($size: 18px, $weight: $thin);
+  }
+}
+
+.card {
+  &__like-icon {
+    font-size: 22px;
+  }
+
+  &__title {
+    @include typography($size: 18px, $weight: $bold);
+  }
+
+  &__subtitle {
+    @include typography($size: 17px, $weight: $thin);
+  }
+
+  &--new {
+    @include typography($size: 14px, $weight: $semi-bold);
+  }
+}
+
+.button_style-1,
+.button_style-2 {
+  @include typography($weight: $semi-bold);
+}
+.button_style-1:active {
+  @include typography($weight: $bold);
+}
+
+//restaurant
+.restaurant-page {
+  &__title {
+    @include typography($family: $title-font, $size: 28px);
+  }
+  .form {
+    &__title {
+      @include typography($weight: $thin);
+      text-transform: uppercase;
+      line-height: 18.75px;
+    }
+    &__subtitle {
+      @include typography($size: 18px, $weight: $semi-bold);
+      line-height: 21.09px;
+      @extend %short-text;
+    }
+    &__description {
+      @include typography($size: 15px, $weight: $thin);
+      line-height: 17.63px;
+      @extend %short-text;
+    }
+    &__price {
+      @include typography($size: 15px, $weight: $bold);
+    }
+  }
+}
+
+//footer
+.footer {
+  &__title {
+    @include typography($family: $title-font, $size: 18px);
+  }
+
+  &__link--semi-bold {
+    @include typography($weight: $semi-bold);
+  }
+}

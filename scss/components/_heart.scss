@@ -1,0 +1,35 @@
+/* # - Heart icon animation --------------------------------------------------------------------------------------------------------------------------------------- # */
+
+.restaurant,
+.restaurant-page,
+.card
+
+
+{
+  .far {
+    text-align: center; 
+    width: 26px; 
+    color: inherit;
+  }
+  
+
+  .fas {
+    text-align: center; 
+    width: 26px; 
+    @extend %heart-gradient;
+    z-index: +1;
+    opacity: 0;
+    transition: opacity 0.5s;
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 1;
+      cursor: pointer;
+    }
+    &:hover + .far,
+    &:focus + .far,
+    &:active + .far {
+      @extend %heart-gradient;
+    }
+  }
+}
